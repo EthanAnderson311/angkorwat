@@ -5,7 +5,7 @@ import {defineConfig, Plugin} from 'vite';
 import {GoogleGenAI} from '@google/genai';
 
 function expressApiPlugin(): Plugin {
-  base '/angkorwat/',
+  base: '/angkorwat/',
   return {
     name: 'api-chat-plugin',
     configureServer(server) {
