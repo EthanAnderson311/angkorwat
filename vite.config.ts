@@ -5,7 +5,6 @@ import {defineConfig, Plugin} from 'vite';
 import {GoogleGenAI} from '@google/genai';
 
 function expressApiPlugin(): Plugin {
-  base: '/angkorwat/',
   return {
     name: 'api-chat-plugin',
     configureServer(server) {
@@ -67,8 +66,8 @@ function expressApiPlugin(): Plugin {
 
 export default defineConfig(() => {
   return {
-    base: '/angkorwat/',
     plugins: [react(), tailwindcss(), expressApiPlugin()],
+    base: '/angkorwat/',
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
