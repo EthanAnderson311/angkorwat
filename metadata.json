@@ -1,0 +1,6 @@
+{
+  "name": "Angkor Wat: The Sacred Stone Sanctuary",
+  "description": "Interactive 3D model, parallax historical storytelling, high-fidelity sandstone bas-reliefs, and audio-guided walkthroughs with captions celebrating Khmer heritage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
