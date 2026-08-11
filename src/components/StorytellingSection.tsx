@@ -15,6 +15,10 @@ export const StorytellingSection: React.FC<StorytellingSectionProps> = ({
   onSelectHotspot,
   activeHotspotId,
 }) => {
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80";
+  };
+
   return (
     <section 
       id={`chapter-section-${chapter.id}`}
@@ -27,6 +31,7 @@ export const StorytellingSection: React.FC<StorytellingSectionProps> = ({
         <img
           src={chapter.bgImage}
           alt={chapter.title}
+          onError={handleImageError}
           className="w-full h-full object-cover object-center filter brightness-50 contrast-125 scale-105 transition-transform duration-1000 ease-out"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-neutral-950/85 to-neutral-950" />
@@ -59,6 +64,7 @@ export const StorytellingSection: React.FC<StorytellingSectionProps> = ({
           <img
             src={chapter.bgImage}
             alt={`${chapter.title} Shrine Detail`}
+            onError={handleImageError}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent" />

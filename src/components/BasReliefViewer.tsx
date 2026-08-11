@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { BasReliefDetail } from '../data/angkorHistoryData';
+import imgBasReliefMain from '../assets/images/angkor_bas_relief_1786454789992.jpg';
 import { Search, Eye, Sparkles, Layers, Info } from 'lucide-react';
 
 interface BasReliefViewerProps {
@@ -53,7 +54,11 @@ export const BasReliefViewer: React.FC<BasReliefViewerProps> = ({ basReliefs }) 
     }
   };
 
-  const currentImage = selectedRelief.image || '/src/assets/images/angkor_bas_relief_1786454789992.jpg';
+  const currentImage = selectedRelief.image || imgBasReliefMain;
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80";
+  };
 
   return (
     <div className="bg-neutral-900 border border-amber-900/40 rounded-3xl p-6 md:p-8 shadow-2xl my-12 backdrop-blur-md">
@@ -125,6 +130,7 @@ export const BasReliefViewer: React.FC<BasReliefViewerProps> = ({ basReliefs }) 
         <img
           src={currentImage}
           alt={selectedRelief.title}
+          onError={handleImageError}
           style={{ filter: getFilterStyle() }}
           className="w-full h-full object-cover transition-all duration-300"
         />
@@ -144,6 +150,7 @@ export const BasReliefViewer: React.FC<BasReliefViewerProps> = ({ basReliefs }) 
             <img
               src={currentImage}
               alt="Magnified Sandstone Detail"
+              onError={handleImageError}
               style={{
                 width: `${magnifierPos.containerW * 3}px`,
                 height: `${magnifierPos.containerH * 3}px`,

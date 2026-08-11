@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ANGKOR_CHAPTERS, ANGKOR_QUIZ } from './data/angkorHistoryData';
+import imgSunriseHero from './assets/images/angkor_sunrise_hero_1786454818680.jpg';
 import { InteractiveSanctuaryShowcase } from './components/InteractiveSanctuaryShowcase';
 import { AudioGuide } from './components/AudioGuide';
 import { BasReliefViewer } from './components/BasReliefViewer';
@@ -75,8 +76,11 @@ export default function App() {
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 z-0">
           <img
-            src="/src/assets/images/angkor_sunrise_hero_1786454818680.jpg"
+            src={imgSunriseHero}
             alt="Angkor Wat Golden Sunrise"
+            onError={(e) => {
+              e.currentTarget.src = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80";
+            }}
             className="w-full h-full object-cover brightness-75 scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-neutral-950/70" />
