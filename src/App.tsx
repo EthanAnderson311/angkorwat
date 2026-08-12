@@ -18,6 +18,11 @@ export default function App() {
 
   const currentChapter = ANGKOR_CHAPTERS[activeChapterIndex] || ANGKOR_CHAPTERS[0];
 
+  // Ensure browser document title is set
+  useEffect(() => {
+    document.title = "Angkor Wat | Ung Chhayarith";
+  }, []);
+
   // Scroll Parallax Detection for Active Chapter
   useEffect(() => {
     const handleScroll = () => {
