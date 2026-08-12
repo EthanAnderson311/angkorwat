@@ -18,7 +18,7 @@ export const InteractiveSanctuaryShowcase: React.FC<InteractiveSanctuaryShowcase
   onChangeTimeOfDay,
 }) => {
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.src = "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1600&q=80";
+    e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Angkor_Wat_2017.jpg/1280px-Angkor_Wat_2017.jpg";
   };
 
   const getTimeOverlayClass = () => {
