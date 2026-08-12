@@ -57,7 +57,7 @@ export const BasReliefViewer: React.FC<BasReliefViewerProps> = ({ basReliefs }) 
   const currentImage = selectedRelief.image || imgBasReliefMain;
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Angkor_Wat_2017.jpg/1280px-Angkor_Wat_2017.jpg";
+    e.currentTarget.src = imgSunriseHero;
   };
 
   return (

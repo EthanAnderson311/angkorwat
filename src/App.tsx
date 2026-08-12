@@ -79,7 +79,7 @@ export default function App() {
             src={imgSunriseHero}
             alt="Angkor Wat Golden Sunrise"
             onError={(e) => {
-              e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Angkor_Wat_2017.jpg/1280px-Angkor_Wat_2017.jpg";
+              e.currentTarget.src = imgSunriseHero;
             }}
             className="w-full h-full object-cover brightness-75 scale-105"
           />

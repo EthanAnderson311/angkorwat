@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StoryChapter } from '../data/angkorHistoryData';
+import imgSunriseHero from '../assets/images/angkor_sunrise_hero_1786454818680.jpg';
 import { Compass, Sun, Moon, Sparkles, MapPin, ShieldCheck } from 'lucide-react';
 
 interface InteractiveSanctuaryShowcaseProps {
@@ -18,7 +19,7 @@ export const InteractiveSanctuaryShowcase: React.FC<InteractiveSanctuaryShowcase
   onChangeTimeOfDay,
 }) => {
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Angkor_Wat_2017.jpg/1280px-Angkor_Wat_2017.jpg";
+    e.currentTarget.src = imgSunriseHero;
   };
 
   const getTimeOverlayClass = () => {
