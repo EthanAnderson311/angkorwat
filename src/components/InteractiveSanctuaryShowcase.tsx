@@ -37,6 +37,7 @@ export const InteractiveSanctuaryShowcase: React.FC<InteractiveSanctuaryShowcase
       {/* Background Image with Time-of-Day Filter */}
       <div className="absolute inset-0 z-0">
         <img
+          key={`showcase-${currentChapter.id}`}
           src={currentChapter.bgImage}
           alt={currentChapter.title}
           onError={handleImageError}

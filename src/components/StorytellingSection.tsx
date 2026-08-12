@@ -30,6 +30,7 @@ export const StorytellingSection: React.FC<StorytellingSectionProps> = ({
       {/* Chapter Background Image Backdrop */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <img
+          key={`bg-${chapter.id}`}
           src={chapter.bgImage}
           alt={chapter.title}
           onError={handleImageError}
@@ -63,6 +64,7 @@ export const StorytellingSection: React.FC<StorytellingSectionProps> = ({
         {/* Chapter Visual Feature Focus Frame */}
         <div className="relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden border border-amber-500/30 shadow-2xl group">
           <img
+            key={`detail-${chapter.id}`}
             src={chapter.bgImage}
             alt={`${chapter.title} Shrine Detail`}
             onError={handleImageError}

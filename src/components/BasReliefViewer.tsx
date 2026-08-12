@@ -128,6 +128,7 @@ export const BasReliefViewer: React.FC<BasReliefViewerProps> = ({ basReliefs }) 
       >
         {/* Base Sandstone Carving Image */}
         <img
+          key={`relief-main-${selectedRelief.id}`}
           src={currentImage}
           alt={selectedRelief.title}
           onError={handleImageError}
