@@ -18,10 +18,6 @@ export const InteractiveSanctuaryShowcase: React.FC<InteractiveSanctuaryShowcase
   timeOfDay,
   onChangeTimeOfDay,
 }) => {
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.src = imgSunriseHero;
-  };
-
   const getTimeOverlayClass = () => {
     if (timeOfDay < 0.2) return 'bg-amber-600/20 mix-blend-color-dodge'; // Dawn
     if (timeOfDay < 0.6) return 'bg-sky-400/10 mix-blend-soft-light'; // Day
@@ -40,7 +36,11 @@ export const InteractiveSanctuaryShowcase: React.FC<InteractiveSanctuaryShowcase
           key={`showcase-${currentChapter.id}`}
           src={currentChapter.bgImage}
           alt={currentChapter.title}
-          onError={handleImageError}
+          onError={(e) => {
+            if (currentChapter.fallbackImage && e.currentTarget.src !== currentChapter.fallbackImage) {
+              e.currentTarget.src = currentChapter.fallbackImage;
+            }
+          }}
           className="w-full h-full object-cover transition-all duration-700 brightness-90 contrast-110 scale-100 group-hover:scale-105"
         />
         {/* Dynamic Atmospheric Tint Overlay */}

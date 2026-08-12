@@ -56,10 +56,6 @@ export const BasReliefViewer: React.FC<BasReliefViewerProps> = ({ basReliefs }) 
 
   const currentImage = selectedRelief.image || imgBasReliefMain;
 
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.src = imgSunriseHero;
-  };
-
   return (
     <div className="bg-neutral-900 border border-amber-900/40 rounded-3xl p-6 md:p-8 shadow-2xl my-12 backdrop-blur-md">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
@@ -131,7 +127,12 @@ export const BasReliefViewer: React.FC<BasReliefViewerProps> = ({ basReliefs }) 
           key={`relief-main-${selectedRelief.id}`}
           src={currentImage}
           alt={selectedRelief.title}
-          onError={handleImageError}
+          onError={(e) => {
+            const fallback = selectedRelief.fallbackImage || 'https://images.unsplash.com/photo-1570784408785-3b95eb56e84d?auto=format&fit=crop&w=1600&q=80';
+            if (e.currentTarget.src !== fallback) {
+              e.currentTarget.src = fallback;
+            }
+          }}
           style={{ filter: getFilterStyle() }}
           className="w-full h-full object-cover transition-all duration-300"
         />
@@ -149,9 +150,15 @@ export const BasReliefViewer: React.FC<BasReliefViewerProps> = ({ basReliefs }) 
           >
             {/* Zoomed Image replica rendered at 3x scale */}
             <img
+              key={`relief-zoom-${selectedRelief.id}`}
               src={currentImage}
               alt="Magnified Sandstone Detail"
-              onError={handleImageError}
+              onError={(e) => {
+                const fallback = selectedRelief.fallbackImage || 'https://images.unsplash.com/photo-1570784408785-3b95eb56e84d?auto=format&fit=crop&w=1600&q=80';
+                if (e.currentTarget.src !== fallback) {
+                  e.currentTarget.src = fallback;
+                }
+              }}
               style={{
                 width: `${magnifierPos.containerW * 3}px`,
                 height: `${magnifierPos.containerH * 3}px`,

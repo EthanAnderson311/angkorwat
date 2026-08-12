@@ -16,10 +16,6 @@ export const StorytellingSection: React.FC<StorytellingSectionProps> = ({
   onSelectHotspot,
   activeHotspotId,
 }) => {
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.src = imgSunriseHero;
-  };
-
   return (
     <section 
       id={`chapter-section-${chapter.id}`}
@@ -33,7 +29,11 @@ export const StorytellingSection: React.FC<StorytellingSectionProps> = ({
           key={`bg-${chapter.id}`}
           src={chapter.bgImage}
           alt={chapter.title}
-          onError={handleImageError}
+          onError={(e) => {
+            if (chapter.fallbackImage && e.currentTarget.src !== chapter.fallbackImage) {
+              e.currentTarget.src = chapter.fallbackImage;
+            }
+          }}
           className="w-full h-full object-cover object-center filter brightness-50 contrast-125 scale-105 transition-transform duration-1000 ease-out"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-neutral-950/85 to-neutral-950" />
@@ -67,7 +67,11 @@ export const StorytellingSection: React.FC<StorytellingSectionProps> = ({
             key={`detail-${chapter.id}`}
             src={chapter.bgImage}
             alt={`${chapter.title} Shrine Detail`}
-            onError={handleImageError}
+            onError={(e) => {
+              if (chapter.fallbackImage && e.currentTarget.src !== chapter.fallbackImage) {
+                e.currentTarget.src = chapter.fallbackImage;
+              }
+            }}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent" />

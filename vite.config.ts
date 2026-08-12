@@ -66,8 +66,8 @@ function expressApiPlugin(): Plugin {
 
 export default defineConfig(() => {
   return {
+    base: './',
     plugins: [react(), tailwindcss(), expressApiPlugin()],
-    base: '/angkorwat/',
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

@@ -76,11 +76,9 @@ export default function App() {
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 z-0">
           <img
+            key="hero-banner-img"
             src={imgSunriseHero}
             alt="Angkor Wat Golden Sunrise"
-            onError={(e) => {
-              e.currentTarget.src = imgSunriseHero;
-            }}
             className="w-full h-full object-cover brightness-75 scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-neutral-950/70" />

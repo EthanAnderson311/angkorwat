@@ -1,3 +1,11 @@
+import imgSunriseHero from '../assets/images/angkor_sunrise_hero_1786454818680.jpg';
+import imgTowersDusk from '../assets/images/angkor_towers_dusk_1786455980462.jpg';
+import imgCausewayMist from '../assets/images/angkor_causeway_mist_1786456003912.jpg';
+import imgReliefWall from '../assets/images/angkor_relief_wall_1786456023843.jpg';
+import imgBuddhaShrine from '../assets/images/angkor_buddha_shrine_1786456041683.jpg';
+import imgAerialView from '../assets/images/angkor_aerial_view_1786456058507.jpg';
+import imgBasReliefMain from '../assets/images/angkor_bas_relief_1786454789992.jpg';
+
 export interface BasReliefDetail {
   id: string;
   title: string;
@@ -6,6 +14,7 @@ export interface BasReliefDetail {
   historicalSignificance: string;
   carvingTechnique: string;
   image?: string;
+  fallbackImage?: string;
 }
 
 export interface StoryChapter {
@@ -20,6 +29,7 @@ export interface StoryChapter {
   audioNarrative: string;
   keyFacts: string[];
   bgImage: string;
+  fallbackImage: string;
   primarySources: {
     quote: string;
     author: string;
@@ -55,7 +65,8 @@ export const ANGKOR_CHAPTERS: StoryChapter[] = [
     subtitle: "The Reign of King Suryavarman II",
     era: "Khmer Empire Golden Age",
     timeframe: "1113 – 1150 CE",
-    bgImage: "/src/assets/images/angkor_sunrise_hero_1786454818680.jpg",
+    bgImage: imgSunriseHero,
+    fallbackImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
     summary: "Built as a monumental state temple and personal mausoleum dedicated to Lord Vishnu, breaking from traditional east-facing Khmer architecture.",
     fullHistory: `In 1113 CE, King Suryavarman II ascended the throne of the Khmer Empire after unifying rival factions. To solidify his divine rule and express devotion to Lord Vishnu, he commissioned the construction of Paramavishnuloka—the 'Supreme Dwelling of Lord Vishnu', known today as Angkor Wat. 
 
@@ -101,7 +112,8 @@ Unlike almost all other Khmer temples which face East toward the rising sun (sym
     subtitle: "Mount Meru and the Cosmic Ocean",
     era: "Sacred Geometry & Symbolism",
     timeframe: "Architectural Design",
-    bgImage: "/src/assets/images/angkor_towers_dusk_1786455980462.jpg",
+    bgImage: imgTowersDusk,
+    fallbackImage: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1600&q=80",
     summary: "Angkor Wat is a physical replica of the Hindu universe, with central towers representing the peaks of Mount Meru surrounded by the cosmic ocean.",
     fullHistory: `The spatial plan of Angkor Wat is a three-dimensional mandala representing Hindu cosmology. The 190-meter (620 ft) wide rectangular moat surrounding the entire complex represents the mythical Cosmic Ocean (*Kshira Sagara*) at the edge of the universe. 
 
@@ -147,7 +159,8 @@ Moving inward across the causeway, visitors ascend three concentric rectangular 
     subtitle: "Transporting Mount Kulen to Siem Reap",
     era: "Construction & Hydraulic Engineering",
     timeframe: "30 Years of Construction",
-    bgImage: "/src/assets/images/angkor_causeway_mist_1786456003912.jpg",
+    bgImage: imgCausewayMist,
+    fallbackImage: "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?auto=format&fit=crop&w=1600&q=80",
     summary: "Over 5 to 10 million sandstone blocks were quarried 50km away, transported via river canals, and assembled without mortar.",
     fullHistory: `Constructing Angkor Wat required unprecedented engineering ingenuity. Over 5 million tons of sandstone blocks were quarried from the sacred plateau of Phnom Kulen (Mount Kulen), located over 50 kilometers (31 miles) northeast. 
 
@@ -193,7 +206,8 @@ Rather than hauling stone across land, Khmer engineers constructed a vast networ
     subtitle: "The Churning of the Ocean of Milk",
     era: "Artistic Genius of the Khmer",
     timeframe: "Outer Gallery Carvings",
-    bgImage: "/src/assets/images/angkor_relief_wall_1786456023843.jpg",
+    bgImage: imgReliefWall,
+    fallbackImage: "https://images.unsplash.com/photo-1570784408785-3b95eb56e84d?auto=format&fit=crop&w=1600&q=80",
     summary: "Over 1,200 square meters of sandstone bas-reliefs tell immortal stories from the Hindu epics and King Suryavarman II's military triumphs.",
     fullHistory: `The outer galleries of Angkor Wat house one of the most magnificent artistic accomplishments in human history: over 1,200 square meters (13,000 sq ft) of continuous low-relief sandstone carvings. 
 
@@ -220,7 +234,8 @@ The crowning jewel is the 'Churning of the Ocean of Milk' (Samudra Manthan) in t
         description: "88 Asuras and 92 Devas churning the cosmic sea using serpent Vasuki around Mount Mandara.",
         historicalSignificance: "Represents the eternal quest for order, immortality, and cosmic harmony under Vishnu.",
         carvingTechnique: "Shallow bas-relief carving depth between 1.5 cm and 3 cm into solid sandstone.",
-        image: "/src/assets/images/angkor_bas_relief_1786454789992.jpg"
+        image: imgBasReliefMain,
+        fallbackImage: "https://images.unsplash.com/photo-1570784408785-3b95eb56e84d?auto=format&fit=crop&w=1600&q=80"
       },
       {
         id: "army-suryavarman",
@@ -229,7 +244,8 @@ The crowning jewel is the 'Churning of the Ocean of Milk' (Samudra Manthan) in t
         description: "King Suryavarman II seated on his war elephant under royal parasols, surrounded by general officers and infantry.",
         historicalSignificance: "Crucial historical evidence of 12th century Khmer royal regalia, weaponry, and social hierarchy.",
         carvingTechnique: "Hierarchical scale where the King is carved significantly larger than his attendants.",
-        image: "/src/assets/images/angkor_causeway_mist_1786456003912.jpg"
+        image: imgCausewayMist,
+        fallbackImage: "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?auto=format&fit=crop&w=1600&q=80"
       },
       {
         id: "apsara-dancers",
@@ -238,7 +254,8 @@ The crowning jewel is the 'Churning of the Ocean of Milk' (Samudra Manthan) in t
         description: "Over 1,790 divine maidens carved with ornate diadems, floral jewelry, and traditional Khmer skirts.",
         historicalSignificance: "Highlights the rich textile, jewelry, and classical dance heritage of ancient Siem Reap.",
         carvingTechnique: "High detail polish on sandstone surfaces preserving delicate finger gestures (mudras).",
-        image: "/src/assets/images/angkor_relief_wall_1786456023843.jpg"
+        image: imgReliefWall,
+        fallbackImage: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1600&q=80"
       }
     ],
     cameraTarget: {
@@ -268,7 +285,8 @@ The crowning jewel is the 'Churning of the Ocean of Milk' (Samudra Manthan) in t
     subtitle: "From Hindu Sanctuary to Living Monastery",
     era: "Post-Angkorian Transition",
     timeframe: "14th Century – Present",
-    bgImage: "/src/assets/images/angkor_buddha_shrine_1786456041683.jpg",
+    bgImage: imgBuddhaShrine,
+    fallbackImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
     summary: "As Theravada Buddhism spread across Southeast Asia, Angkor Wat transitioned seamlessly into a sacred Buddhist pilgrimage site.",
     fullHistory: `By the late 13th and 14th centuries, Theravada Buddhism replaced Hinduism as the dominant religion of the Khmer Empire. Unlike many ancient cities around the world that were abandoned and destroyed, Angkor Wat was never fully deserted. 
 
@@ -308,7 +326,8 @@ Local Khmer monks and royal guardians transformed the central sanctuary into a a
     subtitle: "Unveiling the World's Largest Pre-Industrial City",
     era: "Modern Archaeological Science",
     timeframe: "1992 – Present",
-    bgImage: "/src/assets/images/angkor_aerial_view_1786456058507.jpg",
+    bgImage: imgAerialView,
+    fallbackImage: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1600&q=80",
     summary: "Declared a UNESCO World Heritage site in 1992, 21st-century LiDAR technology revealed a hidden mega-city surrounding the temple.",
     fullHistory: `In 1992, Angkor was designated a UNESCO World Heritage site, initiating one of history's largest international conservation campaigns lead by the French EFEO, UNESCO, and Cambodian APSARA National Authority. 
 
